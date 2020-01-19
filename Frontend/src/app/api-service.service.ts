@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { MockApiService } from './mock-api.service';
 
 // Advanced Candidate Explorer (ACE)
 
@@ -53,7 +54,7 @@ export class SearchResults {
 export class WeightedTag {
   constructor(
     public tag: Tag,
-    public weight: Number
+    public weight: number
   ) { }
 }
 
@@ -92,14 +93,19 @@ export class ApiServiceService {
     return this.API_URL + location;
   }
 
-  constructor(private httpClient: HttpClient) {
-    this.tags = new BehaviorSubject<Tag[]>(null);
+  constructor(
+    private httpClient: HttpClient,
+    private mockApi: MockApiService
+  ) {
+    this.tags = new BehaviorSubject<Tag[]>([]);
+    this.searchResults = new BehaviorSubject<SearchResults>(new SearchResults([]));
   }
 
   public getAvailableTags(): BehaviorSubject<Tag[]> {
-    this.httpClient.get<Tag[]>(this.api('/tags')).subscribe(res => {
-      this.tags.next(res);
-    });
+    // this.httpClient.get<Tag[]>(this.api('/tags')).subscribe(res => {
+    //   this.tags.next(res);
+    // });
+    this.tags.next(this.mockApi.tags);
     return this.tags;
   }
 

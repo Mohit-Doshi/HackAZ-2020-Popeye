@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
-import { MatTabsModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { MatTabsModule, MatFormFieldModule, MatSliderModule, MatCardModule } from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,9 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
 import { UploadResumeComponent } from './upload-resume/upload-resume.component';
 import { FormsModule } from '@angular/forms';
+import { TagPickerComponent } from './tag-picker/tag-picker.component';
+import { TagComponent } from './tag/tag.component';
+import { DescriptionEntrComponent } from './description-entr/description-entr.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import { FormsModule } from '@angular/forms';
     SearchComponent,
     SearchResultsComponent,
     CandidateProfileComponent,
-    UploadResumeComponent
+    UploadResumeComponent,
+    TagPickerComponent,
+    TagComponent,
+    DescriptionEntrComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,11 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSliderModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
