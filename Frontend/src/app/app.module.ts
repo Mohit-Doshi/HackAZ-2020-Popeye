@@ -1,16 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatTabsModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { MatTabsModule, MatFormFieldModule, MatSliderModule, MatCardModule } from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ContentComponent } from './content/content.component';
-import { OverviewComponent } from './overview/overview.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { GitHubComponent } from './git-hub/git-hub.component';
-import { ResumeComponent } from './resume/resume.component';
-import { TimelineComponent } from './timeline/timeline.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -18,17 +14,26 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { SearchComponent } from './search/search.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
+import { UploadResumeComponent } from './upload-resume/upload-resume.component';
+import { FormsModule } from '@angular/forms';
+import { TagPickerComponent } from './tag-picker/tag-picker.component';
+import { TagComponent } from './tag/tag.component';
+import { DescriptionEntrComponent } from './description-entr/description-entr.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContentComponent,
-    OverviewComponent,
-    ProjectsComponent,
-    GitHubComponent,
-    ResumeComponent,
-    TimelineComponent,
-    NavigationComponent
+    NavigationComponent,
+    SearchComponent,
+    SearchResultsComponent,
+    CandidateProfileComponent,
+    UploadResumeComponent,
+    TagPickerComponent,
+    TagComponent,
+    DescriptionEntrComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,13 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
+    FormsModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSliderModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

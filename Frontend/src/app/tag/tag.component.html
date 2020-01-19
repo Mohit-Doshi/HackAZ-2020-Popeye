@@ -1,0 +1,6 @@
+<mat-card-content style="display: block;">
+    <div style="display: inline-block; width: 240px;">{{ tag.tag.name }}</div>
+    <div style="display: inline-block;">
+        <mat-slider min="0" max="5" step="1" tickInterval="1" [(ngModel)]="tag.weight"></mat-slider>
+    </div>
+</mat-card-content>

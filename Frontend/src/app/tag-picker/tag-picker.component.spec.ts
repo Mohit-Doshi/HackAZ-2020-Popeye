@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GitHubComponent } from './git-hub.component';
+import { TagPickerComponent } from './tag-picker.component';
 
-describe('GitHubComponent', () => {
-  let component: GitHubComponent;
-  let fixture: ComponentFixture<GitHubComponent>;
+describe('TagPickerComponent', () => {
+  let component: TagPickerComponent;
+  let fixture: ComponentFixture<TagPickerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GitHubComponent ]
+      declarations: [ TagPickerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GitHubComponent);
+    fixture = TestBed.createComponent(TagPickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

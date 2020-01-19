@@ -21,24 +21,16 @@ export class NavigationComponent {
   constructor(private breakpointObserver: BreakpointObserver) {
     this.navLinks = [
       {
-        label: 'Overview',
-        path: '/overview'
+        label: 'Search',
+        path: '/search'
       },
       {
-        label: 'Projects',
-        path: '/projects'
+        label: 'Results',
+        path: '/results'
       },
       {
-        label: 'GitHub',
-        path: '/GitHub'
-      },
-      {
-        label: 'Resume',
-        path: '/resume'
-      },
-      {
-        label: 'Timeline',
-        path: '/timeline'
+        label: 'Upload / Modify Resume',
+        path: '/upload'
       }
     ];
   }
