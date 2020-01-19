@@ -12,11 +12,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { SearchComponent } from './search/search.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    SearchComponent,
+    SearchResultsComponent,
+    CandidateProfileComponent
   ],
   imports: [
     BrowserModule,
