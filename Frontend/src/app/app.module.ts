@@ -16,6 +16,8 @@ import { MatListModule } from '@angular/material/list';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { CandidateProfileComponent } from './candidate-profile/candidate-profile.component';
+import { UploadResumeComponent } from './upload-resume/upload-resume.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { CandidateProfileComponent } from './candidate-profile/candidate-profile
     NavigationComponent,
     SearchComponent,
     SearchResultsComponent,
-    CandidateProfileComponent
+    CandidateProfileComponent,
+    UploadResumeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { CandidateProfileComponent } from './candidate-profile/candidate-profile
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

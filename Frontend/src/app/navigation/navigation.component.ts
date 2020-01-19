@@ -27,6 +27,10 @@ export class NavigationComponent {
       {
         label: 'Results',
         path: '/results'
+      },
+      {
+        label: 'Upload / Modify Resume',
+        path: '/upload'
       }
     ];
   }

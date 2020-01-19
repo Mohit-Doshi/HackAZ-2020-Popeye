@@ -50,6 +50,20 @@ export class SearchResults {
   ) { }
 }
 
+export class WeightedTag {
+  constructor(
+    public tag: Tag,
+    public weight: Number
+  ) { }
+}
+
+export class SearchQuery {
+  constructor(
+    public description: string,
+    public weightedTag: WeightedTag[]
+  ) { }
+}
+
 export class LanguageUsage {
   constructor(
     public language: string,
@@ -70,13 +84,34 @@ export class GitHubData {
   providedIn: 'root'
 })
 export class ApiServiceService {
-  API_URL = 'http://localhost:5000/api/';
+  API_URL = 'http://localhost:5000/api';
+  public tags: BehaviorSubject<Tag[]>;
+  public searchResults: BehaviorSubject<SearchResults>;
 
-  private tags: BehaviorSubject<Tag>;
+  private api(location: string): string {
+    return this.API_URL + location;
+  }
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.tags = new BehaviorSubject<Tag[]>(null);
+  }
 
-  public getAvailableTags(): BehaviorSubject<Tag> {
+  public getAvailableTags(): BehaviorSubject<Tag[]> {
+    this.httpClient.get<Tag[]>(this.api('/tags')).subscribe(res => {
+      this.tags.next(res);
+    });
     return this.tags;
+  }
+
+  public createTag(tag: Tag) {
+    this.httpClient.post(this.api('/tags'), tag);
+  }
+
+  public doSearch(searchQuery: SearchQuery): BehaviorSubject<SearchResults> {
+    this.httpClient.post<SearchResults>(this.api('/search'), searchQuery).subscribe(res => {
+      this.searchResults.next(res);
+    });
+
+    return this.searchResults;
   }
 }
